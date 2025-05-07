@@ -5,11 +5,16 @@ from .serializers import RegisterSerializer
 from django.contrib.auth import get_user_model
 from django.contrib.auth import authenticate
 from rest_framework.authtoken.models import Token
+from rest_framework.renderers import TemplateHTMLRenderer
+
 
 
 User = get_user_model()
 
 class RegisterView(APIView):
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = 'registration.html'
+
     def post(self, request):
         serializer = RegisterSerializer(data=request.data)
         if serializer.is_valid():
@@ -17,10 +22,20 @@ class RegisterView(APIView):
             return Response({"message": "user created successfully"}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+    def get(self, request):
+        serializer = RegisterSerializer()
+        return Response({"serializer": serializer})
 
 
 class LoginView(APIView):
+
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = 'login.html'
+    
+    
     def post(self, request):
+        
+
         email = request.data.get("email")
         password = request.data.get("password")
 
@@ -31,3 +46,8 @@ class LoginView(APIView):
             return Response({"token": token.key}, status=status.HTTP_200_OK)
         
         return Response({"error": "invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
+
+
+    def get(self, request):
+        serializer = RegisterSerializer()
+        return Response({"serializer": serializer})
