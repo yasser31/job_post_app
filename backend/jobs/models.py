@@ -16,7 +16,7 @@ class JobPost(models.Model):
     
 
 class UserJobPostApplication(models.Model):
-    jobpost = models.ForeignKey(JobPost, related_name="user_applicants", on_delete=models.DO_NOTHING)
+    jobpost = models.ForeignKey(JobPost, related_name="user_applicants", on_delete=models.CASCADE)
     user = models.ForeignKey(User, related_name="applications", on_delete=models.CASCADE)
     date_of_application =  models.DateTimeField(auto_now_add=True)
 
