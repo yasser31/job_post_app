@@ -1,11 +1,14 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
 from. models import *
 from .serializers import *
 
 ###############################################################################
 class JobPostListingView(APIView):
+    permission_classes = [IsAuthenticated]
+    
     def get(self, request):
         jobs = JobPost.objects.all()
         serializer = JobPostSerializer(jobs, many=True)
@@ -13,11 +16,11 @@ class JobPostListingView(APIView):
         return Response({"job posts": serializer.data}, status=status.HTTP_200_OK)
     
     def post(self, request):
-        serializer = JobPostSerializer(request.data)
+        serializer = JobPostSerializer(data=request.data)
         if serializer.is_valid():
-            job_post = serializer.save()
-            return Response({"job post created successfully": job_post}, status=status.HTTP_201_CREATED)
-        return Response({"error": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+            job_post = serializer.save(publisher=request.user)
+            return Response({"msg":"job post created successfully"}, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 
 
@@ -57,9 +60,13 @@ class JobPostDetailView(APIView):
 
 class ProfessionCategoryListingView(APIView):
     def get(self, request):
-        categories = ProfessionCategory.objects.all()
-        serializer = ProfessionCategorySerializer(categories, many=True)
 
+        try:
+            categories = ProfessionCategory.objects.all()
+            serializer = ProfessionCategorySerializer(categories, many=True)
+
+        except:
+            return Response({"message": "an error happened when fetching data"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         return Response({"categories": serializer.data}, status=status.HTTP_200_OK)
     
     def post(self, request):

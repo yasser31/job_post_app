@@ -22,7 +22,7 @@ export function Modal({ isOpen, onClose, children }) {
           onClick={onClose}
         >
           <div
-            className="bg-gray-200 p-6 rounded-xl shadow-lg w-full max-w-md relative mt-10"
+            className="bg-gray-200 p-6 rounded-xl shadow-lg w-full max-w-md relative mt-10 "
             onClick={(e) => e.stopPropagation()}
           >
             <button
