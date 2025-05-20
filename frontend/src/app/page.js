@@ -2,6 +2,7 @@
 import Image from "next/image";
 import {NavBar} from "@/components/layout/NavBar"
 import { HeroSection } from "@/components/layout/HeroSection";
+import {JobOffers} from "../components/layout/JobOffers";
 export default function Home() {
   return (
     <div>
@@ -50,138 +51,9 @@ export default function Home() {
       </div>
       {/* search section  */}
       {/* offers section  */}
-      <section className="bg-gray-100 py-16 mt-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">
-            Offres d'emploi en vedette
-          </h2>
-          <p className="text-gray-600 mt-2 mb-10">
-            Découvrez les dernières opportunités professionnelles
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-            <div
-              className="bg-white p-6 rounded-lg shadow-md transform transition-transform hover:-translate-y-1 hover:shadow-lg text-left flex flex-col justify-between">
-              <div className="flex justify-between items-start">
-                <h3 className="text-lg font-bold text-black">Développeur Full Stack</h3>
-                <span className="bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded">CDI</span>
-              </div>
-              <p className="text-blue-600 mt-2 font-medium">TechCorp</p>
-              <div className="flex items-center text-gray-500 text-sm mt-1">
-                <svg className="w-4 h-4 mr-1 text-gray-400" fill="none" stroke="currentColor" strokeWidth="1.5"
-                  viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round"
-                    d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round"
-                    d="M19.5 10.5c0 7.5-7.5 12-7.5 12s-7.5-4.5-7.5-12a7.5 7.5 0 1115 0z" />
-                </svg>
-                Paris, France
-              </div>
-              <div className="flex items-center text-gray-600 text-sm mt-1">
-                <svg className="w-4 h-4 mr-1 text-gray-400" fill="none" stroke="currentColor" strokeWidth="1.5"
-                  viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2" />
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
-                </svg>
-                Temps plein
-              </div>
-              <p className="text-gray-700 text-sm mt-3 line-clamp-3">
-                Nous recherchons un développeur full stack passionné pour rejoindre notre équipe dynamique et
-                contribuer à la création de produits innovants.
-              </p>
-              <div className="flex flex-wrap gap-2 mt-4">
-                <span className="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">Node.js</span>
-                <span className="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">React</span>
-                <span className="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">MongoDB</span>
-              </div>
-              <div className="mt-4 flex justify-between items-end">
-                <span className="text-gray-800 text-sm font-medium">Salaire: 45k€ - 60k€</span>
-                <a href="#" className="text-blue-600 text-sm font-semibold hover:underline">Voir détails</a>
-              </div>
-            </div>
-            <div
-              className="bg-white p-6 rounded-lg shadow-md transform transition-transform hover:-translate-y-1 hover:shadow-lg text-left flex flex-col justify-between">
-              <div className="flex justify-between items-start">
-                <h3 className="text-lg font-bold text-black">Designer UI/UX</h3>
-                <span className="bg-blue-600 text-white text-xs font-semibold px-2 py-1 rounded">CDD</span>
-              </div>
-              <p className="text-blue-600 mt-2 font-medium">DesignPro</p>
-              <div className="flex items-center text-gray-500 text-sm mt-1">
-                <svg className="w-4 h-4 mr-1 text-gray-400" fill="none" stroke="currentColor" strokeWidth="1.5"
-                  viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round"
-                    d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round"
-                    d="M19.5 10.5c0 7.5-7.5 12-7.5 12s-7.5-4.5-7.5-12a7.5 7.5 0 1115 0z" />
-                </svg>
-                Lyon, France
-              </div>
-              <div className="flex items-center text-gray-600 text-sm mt-1">
-                <svg className="w-4 h-4 mr-1 text-gray-400" fill="none" stroke="currentColor" strokeWidth="1.5"
-                  viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2" />
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
-                </svg>
-                Temps partiel
-              </div>
-              <p className="text-gray-700 text-sm mt-3 line-clamp-3">
-                En tant que designer UI/UX, vous travaillerez sur des projets variés visant à améliorer
-                l'expérience utilisateur sur nos plateformes.
-              </p>
-              <div className="flex flex-wrap gap-2 mt-4">
-                <span className="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">Figma</span>
-                <span className="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">Prototyping</span>
-              </div>
-              <div className="mt-4 flex justify-between items-end">
-                <span className="text-gray-800 text-sm font-medium">Salaire: 30k€ - 40k€</span>
-                <a href="#" className="text-blue-600 text-sm font-semibold hover:underline">Voir détails</a>
-              </div>
-            </div>
-            <div
-              className="bg-white p-6 rounded-lg shadow-md transform transition-transform hover:-translate-y-1 hover:shadow-lg text-left flex flex-col justify-between">
-              <div className="flex justify-between items-start">
-                <h3 className="text-lg font-bold text-black">Ingénieur DevOps</h3>
-                <span className="bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded">CDI</span>
-              </div>
-              <p className="text-blue-600 mt-2 font-medium">CloudGen</p>
-              <div className="flex items-center text-gray-500 text-sm mt-1">
-                <svg className="w-4 h-4 mr-1 text-gray-400" fill="none" stroke="currentColor" strokeWidth="1.5"
-                  viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round"
-                    d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round"
-                    d="M19.5 10.5c0 7.5-7.5 12-7.5 12s-7.5-4.5-7.5-12a7.5 7.5 0 1115 0z" />
-                </svg>
-                Marseille, France
-              </div>
-              <div className="flex items-center text-gray-600 text-sm mt-1">
-                <svg className="w-4 h-4 mr-1 text-gray-400" fill="none" stroke="currentColor" strokeWidth="1.5"
-                  viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2" />
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
-                </svg>
-                Temps plein
-              </div>
-              <p className="text-gray-700 text-sm mt-3 line-clamp-3">
-                Rejoignez notre équipe DevOps pour automatiser, sécuriser et optimiser notre infrastructure
-                cloud de manière innovante.
-              </p>
-              <div className="flex flex-wrap gap-2 mt-4">
-                <span className="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">Docker</span>
-                <span className="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">Kubernetes</span>
-                <span className="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">AWS</span>
-              </div>
-              <div className="mt-4 flex justify-between items-end">
-                <span className="text-gray-800 text-sm font-medium">Salaire: 55k€ - 70k€</span>
-                <a href="#" className="text-blue-600 text-sm font-semibold hover:underline">Voir détails</a>
-              </div>
-            </div>
-          </div>
-          <a href="#"
-            className="inline-block bg-blue-600 text-white px-6 py-3 rounded font-semibold hover:bg-blue-700 text-sm">
-            Voir toutes les offres
-          </a>
-        </div>
-      </section>
+      <JobOffers>
+
+      </JobOffers>
       {/* offers section */}
       {/* how it works section  */}
       <section className="bg-white py-16">

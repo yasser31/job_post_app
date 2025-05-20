@@ -1,20 +1,21 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
+from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 from. models import *
 from .serializers import *
 
 ###############################################################################
 class JobPostListingView(APIView):
-    permission_classes = [IsAuthenticated]
+    
     
     def get(self, request):
         jobs = JobPost.objects.all()
         serializer = JobPostSerializer(jobs, many=True)
 
-        return Response({"job posts": serializer.data}, status=status.HTTP_200_OK)
-    
+        return Response({"job_posts": serializer.data}, status=status.HTTP_200_OK)
+    @permission_classes([IsAuthenticated])
     def post(self, request):
         serializer = JobPostSerializer(data=request.data)
         if serializer.is_valid():

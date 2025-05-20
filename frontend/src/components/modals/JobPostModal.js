@@ -30,8 +30,6 @@ export function JobPostModal({ isOpen, onClose }) {
                 setTitle("");
                 setDescription("");
                 setCity("");
-                setJobType("");
-                setWorkLocation("");
                 setSalary("");
                 setError({});
                 setMsg("");
@@ -73,7 +71,6 @@ export function JobPostModal({ isOpen, onClose }) {
         });
     }
     const handleProfessionChange = (value) => {
-        console.log(value);
         professions.forEach(profession => {
             if (profession.title == value) {
                 setProfession(profession);
@@ -94,7 +91,6 @@ export function JobPostModal({ isOpen, onClose }) {
             "work_location": workLocation,
             "salary": salary
         }
-
         try {
             const response = await fetch("http://127.0.0.1:8000/jobs/jobposts", {
                 "method": "POST",
@@ -111,10 +107,8 @@ export function JobPostModal({ isOpen, onClose }) {
 
             const data = await response.json();
             setMsg(data.msg)
-            console.log(msg);
         }
         catch (error) {
-            console.log(error.title);
             setError(error);
         }
     }
